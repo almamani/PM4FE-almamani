@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ocean-basic: #129cb8;
+  --ocean-light: #22d3ee;
+  --ocean-very-light: #cffafe;
+  --black-basic: #151515;
+  --gray-basic: #333333;
+  --gray-light: #eeeeec;
+  --gray-very-light: #f5f5f4;
+  --white-basic: #f8f8f8;
+  --pink-basic: #e62a65;
+  --pink-basic: #fad1de;
+}
+
+body {
+  @apply bg-white-basic text-black-basic;
+}
+
+.wrapper {
+  @apply w-[90%] mx-auto overflow-hidden max-w-screen-xl;
+}
+
+.button {
+  @apply bg-ocean-basic text-white-basic block w-max py-4 px-12 rounded-full;
+}
+
+.container {
+  @apply flex flex-col min-h-screen min-w-full;
+}
+
+.card {
+  @apply p-4 rounded-lg border border-gray-light text-black-basic m-4 bg-gray-light;
+}
+
+nav {
+  background-color: var(--ocean-basic);
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
