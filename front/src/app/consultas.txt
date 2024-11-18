@@ -1,3 +1,19 @@
+
+Te hago una consulta, tengo la siguiente advertencia en mi código: "Type 'IProduct' is missing the following properties from type 'IProduct[]': length, pop, push, concat, and 35 more" porqué podrá ser? te paso la interface y mi componente y vemos a que se debe te parece?
+
+La interface es:
+export interface IProduct {
+  id?: number;
+  name: string;
+  price: number;
+  description: string;
+  image?: string;
+  categoryId?: number;
+  stock?: number;
+}
+
+y el componente:
+
 import React from "react";
 import Card from "@/components/Card";
 import { getProducts } from "@/services/productService";

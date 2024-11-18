@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         "ocean-basic": "#129cb8",
+        "ocean-dark": "#0E7489",
         "ocean-light": "#22d3ee",
         "ocean-very-light": "#cffafe",
         "black-basic": "#151515",

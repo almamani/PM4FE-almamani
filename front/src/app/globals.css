@@ -16,7 +16,7 @@
 }
 
 body {
-  @apply bg-white-basic text-black-basic;
+  @apply bg-white-basic text-black-basic text-xl;
 }
 
 .wrapper {
@@ -24,7 +24,7 @@ body {
 }
 
 .button {
-  @apply bg-ocean-basic text-white-basic block w-max py-4 px-12 rounded-full;
+  @apply bg-ocean-basic text-white-basic text-xl font-bold block w-max py-2 px-6 rounded-full hover:bg-ocean-dark;
 }
 
 .container {
@@ -35,33 +35,30 @@ body {
   @apply p-4 rounded-lg border border-gray-light text-black-basic m-4 bg-gray-light;
 }
 
+form {
+  @apply flex flex-col w-1/3 mx-auto;
+}
+
+input {
+  @apply w-full p-2 mb-2 border border-gray-300 text-xl rounded;
+}
+
 nav {
   background-color: var(--ocean-basic);
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.6rem;
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.125rem;
-}
-
-h6 {
-  font-size: 1rem;
 }

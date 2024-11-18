@@ -1,4 +1,5 @@
 import React from "react";
+import RegisterComponent from "@/components/RegisterComponent";
 
 const Register = () => {
   return (
@@ -6,6 +7,7 @@ const Register = () => {
       <div className="container">
         <h1>Register</h1>
         <hr />
+        <RegisterComponent />
       </div>
     </main>
   );

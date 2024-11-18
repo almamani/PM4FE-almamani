@@ -7,10 +7,10 @@ const Card = ({ id, name, price, description }: IProduct) => {
   return (
     <Link href={`products/${id}`}>
       <div>
-        <h4>{name}</h4>
-        <h6>{description}</h6>
+        <h2>{name}</h2>
+        <p>{description}</p>
         <br />
-        <h4>${price}</h4>
+        <h3>${price}</h3>
       </div>
     </Link>
   );

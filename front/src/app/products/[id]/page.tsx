@@ -13,7 +13,7 @@ interface PageProps {
 const Product = async ({ params }: PageProps) => {
   const { id } = await params;
 
-  const productFind = getProductById(parseInt(id));
+  const productFind = await getProductById(parseInt(id));
 
   if (!productFind) {
     return notFound();

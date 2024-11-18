@@ -1,4 +1,5 @@
 import React from "react";
+import LoginComponent from "../../components/LoginComponent";
 
 const Login = () => {
   return (
@@ -6,6 +7,7 @@ const Login = () => {
       <div className="container">
         <h1>Login</h1>
         <hr />
+        <LoginComponent />
       </div>
     </main>
   );

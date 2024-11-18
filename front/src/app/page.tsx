@@ -1,13 +1,10 @@
-"use client";
 import React from "react";
 import Card from "@/components/Card/index";
-import products from "../mocks/products";
-import { useRouter } from "next/navigation";
+import { getFeaturedProducts } from "@/services/productService";
 
-const featuredProducts = products.slice(0, 3);
+const featuredProducts = await getFeaturedProducts();
 
 const Home = () => {
-  const Router = useRouter();
   return (
     <main>
       <div className="container">
@@ -28,12 +25,6 @@ const Home = () => {
             );
           })}
         </div>
-        <button
-          onClick={() => Router.push("/products/1")}
-          className="button mx-auto"
-        >
-          Redirect
-        </button>
       </div>
     </main>
   );
