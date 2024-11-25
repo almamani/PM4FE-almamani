@@ -3,6 +3,7 @@ import { Agdasima } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import Contexts from "@/context/context";
 
 const agdasima = Agdasima({
   subsets: ["latin"],
@@ -21,14 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${agdasima.variable} antialiased`}>
-        <div className="container">
-          <NavBar />
-          {children}
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <Contexts>
+      <html lang="en">
+        <body className={`${agdasima.variable} antialiased`}>
+          <div className="container">
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </Contexts>
   );
 }

@@ -1,13 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import UserWidget from "../UserWidget";
 
 const NavBar = () => {
   return (
-    <nav className="mt-auto bg-ocean-basic">
-      <div className="flex justify-start items-center">
+    <nav className="mt-auto bg-ocean-basic bg-quaternary w-full p-3">
+      <div className="flex justify-between items-center">
         <Link href="/">
-          <h4>NavBar</h4>
+          <h3>CompuShop</h3>
         </Link>
+        <UserWidget />
       </div>
     </nav>
   );

@@ -17,5 +17,6 @@ export const userLogin = async (data: ILogin) => {
     body: JSON.stringify(data),
     headers: { "content-type": "application/json" },
   });
+
   return res.json();
 };

@@ -1,3 +1,4 @@
+import CartComponent from "@/components/CartComponent";
 import React from "react";
 
 const Cart = () => {
@@ -6,6 +7,8 @@ const Cart = () => {
       <div className="container">
         <h1>Cart</h1>
         <hr />
+
+        {<CartComponent />}
       </div>
     </main>
   );

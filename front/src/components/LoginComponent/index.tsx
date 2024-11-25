@@ -1,11 +1,13 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState, useContext } from "react";
 import { validateLogin } from "../../helpers/validateLogin";
 import { ILogin } from "../../interfaces/ILogin";
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/services/userService";
+import { UserContext } from "../../context/userContext";
 
 const LoginComponent = () => {
+  const { setUser } = useContext(UserContext);
   const router = useRouter();
   const [userData, setUserData] = useState({
     email: "",
@@ -32,7 +34,8 @@ const LoginComponent = () => {
     } else {
       const res = await userLogin(userData);
       if (!res.message) {
-        alert("Logged!");
+        alert("Logged in!");
+        setUser(res);
         router.push("/");
       } else {
         alert(res.message);

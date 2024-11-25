@@ -5,6 +5,7 @@ export const validateRegister = (
   validateEmptyFields = false
 ) => {
   const errors: IRegister = {};
+
   const nameRegex = /^[a-zA-Z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const phoneRegex = /^[0-9]+$/;
