@@ -1,0 +1,11 @@
+.form {
+  @apply flex flex-col w-1/3 mx-auto mt-8;
+}
+
+.input {
+  @apply w-full p-2 mb-2 border border-gray-300 text-xl rounded;
+}
+
+.error {
+  @apply text-pink-basic text-lg;
+}

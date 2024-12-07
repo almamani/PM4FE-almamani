@@ -1,15 +1,9 @@
 "use client";
-
-import { IProduct } from "@/interfaces/IProduct";
 import { createContext, useState, useEffect } from "react";
+import { IProduct } from "@/interfaces/IProduct";
+import { ICartContextProps } from "../interfaces/ICartContextProps";
 
-interface CartContextProps {
-  cart: IProduct[];
-  setCart: (cart: IProduct[]) => void;
-  cleanCart: () => void;
-}
-
-export const CartContext = createContext<CartContextProps>({
+export const CartContext = createContext<ICartContextProps>({
   cart: [],
   setCart: () => {},
   cleanCart: () => {},

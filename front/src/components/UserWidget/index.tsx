@@ -1,69 +1,60 @@
 "use client";
 import { useContext } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/userContext";
 import { CartContext } from "@/context/cartContext";
-import Link from "next/link";
+import styles from "./UserWidget.module.css";
 
 const UserWidget = () => {
   const { user, setUser } = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const router = useRouter();
 
   const handleLogout = () => {
     setUser(null);
+    setCart([]);
     localStorage.removeItem("user");
+    localStorage.removeItem("cart");
     router.push("/");
   };
 
   return (
-    <nav className="flex items-center justify-between bg-gray-800 p-4">
-      <ul className="flex space-x-4 text-white">
-        {/* Links comunes */}
+    <nav className="flex items-center justify-between">
+      <ul className="flex space-x-4 text-gray-very-light text-2xl">
         <li>
-          <Link href="/" className="hover:text-blue-400">
+          <Link href="/" className={styles.link}>
             Home
           </Link>
         </li>
         <li>
-          <Link href="/products" className="hover:text-blue-400">
+          <Link href="/products" className={styles.link}>
             Products
           </Link>
         </li>
-        <li>
-          <Link href="/cart" className="hover:text-blue-400">
-            {`Cart ${cart.length > 0 ? "(" + cart.length + ")" : " "}`}
-          </Link>
-        </li>
 
-        {/* Links condicionales */}
         {user ? (
           <>
             <li>
-              <Link
-                href="/dashboard"
-                className="hover:text-red-400 focus:outline-none"
-              >
+              <Link href="/dashboard" className={styles.link}>
                 Dashboard
               </Link>
             </li>
             <li>
-              <button
-                onClick={handleLogout}
-                className="hover:text-red-400 focus:outline-none"
-              >
+              <Link href="/cart" className={styles.link}>
+                {`Cart ${cart.length > 0 ? "(" + cart.length + ")" : " "}`}
+              </Link>
+            </li>
+            <li>
+              <button onClick={handleLogout} className={styles.link}>
                 Logout
               </button>
             </li>
-            <li className="text-red-400">{user.user.email}</li>
           </>
         ) : (
           <>
             <li>
-              <Link
-                href="/login"
-                className="hover:text-red-400 focus:outline-none"
-              >
+              <Link href="/login" className={styles.link}>
                 Login
               </Link>
             </li>

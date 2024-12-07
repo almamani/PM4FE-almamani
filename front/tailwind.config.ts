@@ -10,14 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         "ocean-basic": "#129cb8",
-        "ocean-dark": "#0E7489",
         "ocean-light": "#22d3ee",
+        "ocean-dark": "#0E7489",
         "ocean-very-light": "#cffafe",
         "black-basic": "#151515",
+        "black-light": "#374151",
         "gray-basic": "#333333",
         "gray-light": "#eeeeec",
-        "gray-very-light": "#f5f5f4",
-        "white-basic": "#f8f8f8",
+        "gray-very-light": "#f4f7fb",
+        "white-basic": "#ffffff",
         "pink-basic": "#e62a65",
         "pink-light": "#fad1de",
       },

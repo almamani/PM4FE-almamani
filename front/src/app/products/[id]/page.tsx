@@ -1,8 +1,6 @@
-import React from "react";
-import { notFound } from "next/navigation";
-
-import Detail from "@/components/Detail";
 import { getProductById } from "@/services/productService";
+import { notFound } from "next/navigation";
+import Detail from "@/components/Detail";
 
 interface PageProps {
   params: {
@@ -11,7 +9,7 @@ interface PageProps {
 }
 
 const Product = async ({ params }: PageProps) => {
-  const { id } = await params;
+  const { id } = await params; // Ya no es necesario hacer `await` aquí, porque `params` es un objeto.
 
   const productFind = await getProductById(parseInt(id));
 
@@ -20,17 +18,10 @@ const Product = async ({ params }: PageProps) => {
   }
 
   return (
-    <div className="container">
-      <h1>El producto seleccionado es el nro: {id}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-11/12 mx-auto my-4">
-        <div className="card">
-          <Detail
-            id={productFind.id}
-            name={productFind.name}
-            description={productFind.description}
-            price={productFind.price}
-          />
-        </div>
+    <div>
+      <h1>{productFind.name}</h1>
+      <div>
+        <Detail product={productFind} />
       </div>
     </div>
   );

@@ -1,14 +1,20 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState, useContext } from "react";
-import { validateLogin } from "../../helpers/validateLogin";
+import { ChangeEvent, FormEvent, useState, useContext } from "react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ILogin } from "../../interfaces/ILogin";
-import { useRouter } from "next/navigation";
+import { validateLogin } from "../../helpers/validateLogin";
 import { userLogin } from "@/services/userService";
 import { UserContext } from "../../context/userContext";
+import styles from "./LoginComponent.module.css";
 
 const LoginComponent = () => {
   const { setUser } = useContext(UserContext);
   const router = useRouter();
+
+  const searchParams = useSearchParams(); // Obtiene los query params
+  const redirectPath = searchParams.get("redirect"); // Extrae el parámetro 'redirect'
+
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -36,7 +42,7 @@ const LoginComponent = () => {
       if (!res.message) {
         alert("Logged in!");
         setUser(res);
-        router.push("/");
+        router.push(redirectPath || "/"); // Redirige al detalle o a la raíz
       } else {
         alert(res.message);
       }
@@ -44,7 +50,7 @@ const LoginComponent = () => {
   };
 
   return (
-    <form onSubmit={handleOnSubmit} className="mt-8">
+    <form onSubmit={handleOnSubmit} className={styles.form}>
       <div className="mb-2">
         <label className="text-xl font-bold">Email:</label>
         <input
@@ -53,10 +59,9 @@ const LoginComponent = () => {
           name="email"
           placeholder="Email"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.email && (
-          <p className="text-pink-basic text-lg">{errors.email}</p>
-        )}
+        {errors.email && <p className={styles.error}>{errors.email}</p>}
       </div>
 
       <div className="mb-2">
@@ -67,13 +72,28 @@ const LoginComponent = () => {
           name="password"
           placeholder="Password"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.password && (
-          <p className="text-pink-basic text-lg ">{errors.password}</p>
-        )}
+        {errors.password && <p className={styles.error}>{errors.password}</p>}
       </div>
 
-      <button className="button">Ingresar</button>
+      {/* Centrando el botón */}
+      <div className="flex justify-center">
+        <button className="button">Sign In</button>
+      </div>
+
+      {/* Link to Register */}
+      <div className="mt-4">
+        <p className="text-center">
+          Not registered yet?{" "}
+          <Link
+            href="/register"
+            className="text-ocean-dark underline hover:text-ocean-basic"
+          >
+            Sign up here!
+          </Link>
+        </p>
+      </div>
     </form>
   );
 };

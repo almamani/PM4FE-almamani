@@ -19,6 +19,6 @@ export const getProductById = async (id: number): Promise<IProduct> => {
 
 export const getFeaturedProducts = async (): Promise<IProduct[]> => {
   const products = await getProducts();
-  const featuredProducts = products.slice(0, 3);
+  const featuredProducts = products.slice(0, 4);
   return featuredProducts as IProduct[];
 };

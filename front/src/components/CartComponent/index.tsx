@@ -1,8 +1,8 @@
 "use client";
 import { useContext } from "react";
+import { buyOrder } from "@/services/ordersService";
 import { CartContext } from "@/context/cartContext";
 import { UserContext } from "@/context/userContext";
-import { buyOrder } from "@/services/ordersService";
 
 const CartComponent = () => {
   const { cart, cleanCart } = useContext(CartContext);
@@ -31,7 +31,7 @@ const CartComponent = () => {
   return (
     <div className="mx-auto">
       {!cart || cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <h2 className="mt-6 text-pink-basic">Your cart is emty.</h2>
       ) : (
         <div className="flex flex-col gap-8 mt-6">
           {cart.map((item, index) => (

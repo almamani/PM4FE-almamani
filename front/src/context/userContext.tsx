@@ -2,14 +2,9 @@
 import { createContext, useState, useEffect } from "react";
 import { IUser } from "@/interfaces/IUser";
 import { IOrder } from "@/interfaces/IOrder";
+import { IUserContextProps } from "../interfaces/IUserContextProps";
 
-interface UserContextProps {
-  user: IUser | null;
-  setUser: (user: IUser | null) => void;
-  updateOrders: (order: IOrder) => void;
-}
-
-export const UserContext = createContext<UserContextProps>({
+export const UserContext = createContext<IUserContextProps>({
   user: null,
   setUser: () => {},
   updateOrders: () => {},

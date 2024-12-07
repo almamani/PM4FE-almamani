@@ -1,0 +1,3 @@
+.link {
+  @apply text-gray-very-light text-2xl hover:text-black-basic;
+}

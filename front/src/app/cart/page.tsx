@@ -1,5 +1,4 @@
 import CartComponent from "@/components/CartComponent";
-import React from "react";
 
 const Cart = () => {
   return (

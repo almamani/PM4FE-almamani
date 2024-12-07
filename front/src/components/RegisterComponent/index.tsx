@@ -1,9 +1,10 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { validateRegister } from "../../helpers/validateRegister";
-import { IRegister } from "../../interfaces/IRegister";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { IRegister } from "../../interfaces/IRegister";
+import { validateRegister } from "../../helpers/validateRegister";
 import { userRegister } from "@/services/userService";
+import styles from "./RegisterComponent.module.css";
 
 const RegisterComponent = () => {
   const router = useRouter();
@@ -51,7 +52,7 @@ const RegisterComponent = () => {
     }
   };
   return (
-    <form onSubmit={handleOnSubmit} className="mt-8">
+    <form onSubmit={handleOnSubmit} className={styles.form}>
       <div className="mb-2">
         <label className="text-xl font-bold">First and Last Name:</label>
         <input
@@ -60,10 +61,9 @@ const RegisterComponent = () => {
           name="name"
           placeholder="Enter First and Last Name"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.name && (
-          <p className="text-pink-basic text-lg">{errors.name}</p>
-        )}
+        {errors.name && <p className={styles.error}>{errors.name}</p>}
       </div>
       <div className="mb-2">
         <label className="text-xl font-bold">Email:</label>
@@ -73,10 +73,9 @@ const RegisterComponent = () => {
           name="email"
           placeholder="example@gmail.com"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.email && (
-          <p className="text-pink-basic text-lg">{errors.email}</p>
-        )}
+        {errors.email && <p className={styles.error}>{errors.email}</p>}
       </div>
       <div className="mb-2">
         <label className="text-xl font-bold">Address:</label>
@@ -86,10 +85,9 @@ const RegisterComponent = () => {
           name="address"
           placeholder="Enter Address"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.address && (
-          <p className="text-pink-basic text-lg">{errors.address}</p>
-        )}
+        {errors.address && <p className={styles.error}>{errors.address}</p>}
       </div>
       <div className="mb-2">
         <label className="text-xl font-bold">Phone:</label>
@@ -99,10 +97,9 @@ const RegisterComponent = () => {
           name="phone"
           placeholder="Enter only numbers"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.phone && (
-          <p className="text-pink-basic text-lg">{errors.phone}</p>
-        )}
+        {errors.phone && <p className={styles.error}>{errors.phone}</p>}
       </div>
 
       <div className="mb-2">
@@ -113,10 +110,9 @@ const RegisterComponent = () => {
           name="password"
           placeholder="Enter Password"
           onChange={handleInputChange}
+          className={styles.input}
         />
-        {errors.password && (
-          <p className="text-pink-basic text-lg">{errors.password}</p>
-        )}
+        {errors.password && <p className={styles.error}>{errors.password}</p>}
       </div>
       <div className="mb-2">
         <label className="text-xl font-bold">Repeat Password:</label>
@@ -126,12 +122,15 @@ const RegisterComponent = () => {
           name="repeatedPassword"
           placeholder="Repeat Password"
           onChange={handleInputChange}
+          className={styles.input}
         />
         {errors.repeatedPassword && (
-          <p className="text-pink-basic text-lg">{errors.repeatedPassword}</p>
+          <p className={styles.error}>{errors.repeatedPassword}</p>
         )}
       </div>
-      <button className="button">Register</button>
+      <div className="flex justify-center">
+        <button className="button">Register</button>
+      </div>
     </form>
   );
 };
