@@ -5,13 +5,8 @@ import { CartContext } from "@/context/cartContext";
 import { UserContext } from "@/context/userContext";
 
 const CartComponent = () => {
-  const { cart, setCart, cleanCart } = useContext(CartContext);
+  const { cart, cleanCart } = useContext(CartContext);
   const { user, updateOrders } = useContext(UserContext);
-
-  const handleRemoveItem = (id: number) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
-  };
 
   const handleCart = async () => {
     if (user) {
@@ -36,26 +31,26 @@ const CartComponent = () => {
   return (
     <div className="wrapper1">
       {!cart || cart.length === 0 ? (
-        <h2 className="mt-6 text-pink-basic">Your cart is empty.</h2>
+        <h2 className="text-pink-basic text-center">Your cart is empty.</h2>
       ) : (
         <div className="flex flex-col gap-8 mt-6">
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between gap-20 items-center p-3 mb-2 border border-gray-light rounded-lg bg-white-basic"
+              className="flex justify-between gap-15 items-center p-3  border border-gray-light rounded-lg bg-white-basic"
             >
-              <p className="text-2xl">{item.name}</p>
-              <p className="text-2xl">${item.price}</p>
-              <button
-                className="text-red-500 text-3xl font-bold hover:text-red-700 transition-colors duration-300"
-                onClick={() => handleRemoveItem(item.id)}
-              >
-                X
-              </button>
+              <p className="text-2xl">
+                <span className="text-gray-basic font-bold">Product: </span>
+                {item.name}
+              </p>
+              <p className="text-2xl">
+                <span className="text-gray-basic font-bold">Price: </span>$
+                {item.price}
+              </p>
             </div>
           ))}
-          <div className="flex justify-between gap-20 items-center p-3 border border-gray-light rounded-lg bg-white-basic">
-            <p className="text-3xl">Total: ${totalOrder}</p>
+          <div className="flex justify-between gap-20 items-center p-2 border border-gray-light rounded-lg bg-white-basic">
+            <h2 className="text-2xl font-bold">Total: ${totalOrder}</h2>
             <button className="button mt-3 mb-3" onClick={handleCart}>
               Buy Order
             </button>
