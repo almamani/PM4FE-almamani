@@ -17,7 +17,7 @@ const formatDate = (isoDate: string): string => {
 const OrdersComponent = () => {
   const { user } = useContext(UserContext);
 
-  if (!user) return null; // Asegurarse de que el usuario esté disponible
+  if (!user) return null;
 
   const { orders } = user.user;
 

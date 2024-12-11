@@ -12,8 +12,8 @@ const LoginComponent = () => {
   const { setUser } = useContext(UserContext);
   const router = useRouter();
 
-  const searchParams = useSearchParams(); // Obtiene los query params
-  const redirectPath = searchParams.get("redirect"); // Extrae el parámetro 'redirect'
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get("redirect");
 
   const [userData, setUserData] = useState({
     email: "",
@@ -42,7 +42,7 @@ const LoginComponent = () => {
       if (!res.message) {
         alert("Logged in!");
         setUser(res);
-        router.push(redirectPath || "/"); // Redirige al detalle o a la raíz
+        router.push(redirectPath || "/");
       } else {
         alert(res.message);
       }

@@ -12,14 +12,13 @@ const Home = () => {
       <div className="container">
         <div>
           <div className="relative w-full h-[65vh] mb-8">
-            {/* Imagen de fondo */}
             <Image
               src={imgHome}
               alt="Imagen de fondo del Home"
-              layout="fill" // Ocupa todo el contenedor
-              objectFit="cover" // Se comporta como background-size: cover
-              objectPosition="center" // Se comporta como background-position: center
-              className="-z-10" // Se coloca detrás del contenido
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              className="-z-10"
             />
             <div
               className="absolute top-0 left-0 p-5 text-left"

@@ -9,8 +9,8 @@ const CartComponent = () => {
   const { user, updateOrders } = useContext(UserContext);
 
   const handleRemoveItem = (id: number) => {
-    const updatedCart = cart.filter((item) => item.id !== id); // Filtramos el producto eliminado
-    setCart(updatedCart); // Actualizamos el carrito en el contexto
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
   };
 
   const handleCart = async () => {

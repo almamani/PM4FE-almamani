@@ -5,7 +5,7 @@ import { UserContext } from "@/context/userContext";
 const PerfilComponent = () => {
   const { user } = useContext(UserContext);
 
-  if (!user) return null; // Asegurarse de que el usuario esté disponible
+  if (!user) return null;
 
   const { name, email, address, phone } = user.user;
 

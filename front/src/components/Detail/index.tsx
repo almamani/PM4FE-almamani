@@ -10,7 +10,7 @@ const Detail = ({ product }: { product: IProduct }) => {
   const { user } = useContext(UserContext);
   const { cart, setCart } = useContext(CartContext);
   const router = useRouter();
-  const pathname = usePathname(); // Obtiene la ruta actual
+  const pathname = usePathname();
 
   const isInCart = cart.some((p) => p.id === product.id);
 
@@ -21,7 +21,7 @@ const Detail = ({ product }: { product: IProduct }) => {
         alert("Added!");
       } else {
         alert("Product is already in the cart!");
-        router.back(); // Redirige al historial previo tras el alert
+        router.back();
       }
     } else {
       alert("Please log in first!");
