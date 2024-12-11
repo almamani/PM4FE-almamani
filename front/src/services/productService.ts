@@ -1,12 +1,11 @@
-import { API_URL, FALLBACK_MOCK } from "../../envs";
+import { API_URL } from "../../envs";
 import { IProduct } from "@/interfaces/IProduct";
-import productsMock from "@/mocks/productsMock";
 
 export const getProducts = async (): Promise<IProduct[]> => {
   const res = await fetch(`${API_URL}/products`)
     .then((res) => res.json())
     .catch(() => {
-      return FALLBACK_MOCK ? productsMock : [];
+      return [];
     });
   return res as IProduct[];
 };

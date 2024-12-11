@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/userContext";
 import { CartContext } from "@/context/cartContext";
-import styles from "./UserWidget.module.css";
+import styles from "./Menu.module.css";
 
-const UserWidget = () => {
+const Menu = () => {
   const { user, setUser } = useContext(UserContext);
   const { cart, setCart } = useContext(CartContext);
   const router = useRouter();
@@ -65,4 +65,4 @@ const UserWidget = () => {
   );
 };
 
-export default UserWidget;
+export default Menu;

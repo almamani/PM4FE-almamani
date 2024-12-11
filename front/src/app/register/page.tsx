@@ -3,11 +3,9 @@ import RegisterComponent from "@/components/RegisterComponent";
 const Register = () => {
   return (
     <main>
-      <div className="container">
-        <h1>Register</h1>
-        <hr />
-        <RegisterComponent />
-      </div>
+      <h1>Register</h1>
+      <hr />
+      <RegisterComponent />
     </main>
   );
 };

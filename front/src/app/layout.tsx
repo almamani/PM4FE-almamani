@@ -23,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <Contexts>
-      <html lang="en">
-        <body className={`${agdasima.variable} antialiased`}>
+      <html lang="en" className={agdasima.className}>
+        <body>
           <div className="container">
             <NavBar />
             {children}

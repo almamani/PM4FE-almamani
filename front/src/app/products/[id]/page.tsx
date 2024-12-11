@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 const Product = async ({ params }: PageProps) => {
-  const { id } = await params; // Ya no es necesario hacer `await` aquí, porque `params` es un objeto.
+  const { id } = await params;
 
   const productFind = await getProductById(parseInt(id));
 
@@ -19,7 +19,7 @@ const Product = async ({ params }: PageProps) => {
 
   return (
     <div>
-      <h1>{productFind.name}</h1>
+      <h1 className="mb-6">{productFind.name}</h1>
       <div>
         <Detail product={productFind} />
       </div>

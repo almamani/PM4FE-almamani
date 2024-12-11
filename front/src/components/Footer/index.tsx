@@ -1,11 +1,14 @@
+import Link from "next/link";
 import Image from "next/image";
-import logo_pie from "@/assets/logo_compuShop1.svg";
+
+import logo_footer from "@/assets/logo_compuShop1.svg";
+
 const Footer = () => {
   return (
-    <footer className=" bg-black-light py-2 mt-4">
-      <div className="flex justify-center items-center">
-        <Image src={logo_pie} alt="Logo" width={207} height={10} />
-      </div>
+    <footer className="mt-auto py-1.5 bg-black-light flex justify-center items-center ">
+      <Link href="/">
+        <Image src={logo_footer} alt="Logo Footer" width={197} height={5} />
+      </Link>
     </footer>
   );
 };

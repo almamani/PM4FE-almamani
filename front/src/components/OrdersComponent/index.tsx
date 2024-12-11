@@ -24,12 +24,12 @@ const OrdersComponent = () => {
   return (
     <div className="mx-auto">
       <p className="text-pink-basic text-center mt-6 mb-5 text-3xl">
-        ---------------------- Your Orders ----------------------
+        -------------------------- Your Orders ---------------------------
       </p>
       {orders.map((order: IOrder, i) => (
         <div
           key={i}
-          className="flex justify-between gap-20 items-center p-2 border border-gray-300 rounded-lg bg-gray-50"
+          className="flex justify-between gap-20 items-center p-2 border mb-2 border-gray-300 rounded-lg bg-gray-50"
         >
           <p className="text-2xl">
             <span className="text-gray-basic font-bold">Id: </span>

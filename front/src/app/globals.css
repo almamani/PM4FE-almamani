@@ -2,32 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-very-light text-black-basic text-2xl;
-  font-family: var(--font-primary);
+:root {
+  --ocean-basic: #129cb8;
+  --ocean-dark: #0e7489;
+  --gray-very-light: #f4f7fb;
+  --black-basic: #151515;
+  --white-basic: #ffffff;
 }
-.button {
-  @apply bg-ocean-basic text-white-basic text-xl font-bold block w-max py-2 px-6 rounded-full hover:bg-ocean-dark;
+
+body {
+  background: var(--gray-very-light);
+  color: var(--black-basic);
+  font-size: 1.5rem;
 }
 
 .container {
-  @apply flex flex-col min-h-screen min-w-full;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  flex-grow: 1;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 1390px;
+  margin: 0 auto;
+}
+
+.wrapper1 {
+  width: 40%;
+  margin: 0 auto;
 }
 
 h1 {
-  font-size: 3rem;
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 2.8rem;
   font-weight: 500;
+  text-align: center;
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 500;
   text-align: center;
 }
 
-h3 {
-  font-size: 1.2rem;
+.button {
+  background-color: var(--ocean-basic);
+  color: var(--white-basic);
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: block;
+  width: max-content;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--ocean-dark);
 }

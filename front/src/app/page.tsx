@@ -45,6 +45,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         <h2 className="mx-20 mb-2">Featured Products</h2>
         <hr />
 

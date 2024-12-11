@@ -4,10 +4,10 @@ import OrdersComponent from "@/components/OrdersComponent";
 const Dashboard = () => {
   return (
     <main>
-      <div className="container">
+      <div>
         <h1>Dashboard</h1>
         <hr />
-        <div className="mx-auto">
+        <div className="wrapper1">
           <PerfilComponent />
           <OrdersComponent />
         </div>

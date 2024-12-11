@@ -1,16 +1,37 @@
-Algo similar ocurre tanto en mi formulario de login como en el de register, comencemos por el de login, ya había definido, los estilos en globals.css, sin embargo debería utilizarlo solo en login, y register. Aunque compartirian los mismos estilos me imagino que tengo que hacerlo en módulos css por separado...los estilos globales que ya tengo y debería pasar a los "particulares" son estos: 
+Tengo un problemilla en esta linea const productsFound: IProduct[] = await getProducts(); // Funciona de 10 pero me marca una advertencia que dice lo siguiente: Type 'IProduct' is missing the following properties from type 'IProduct[]': length, pop, push, concat, and 35 more.ts(2740) Que podrá ser? te pego mi componenente por las dudas:
 
-form {
-  @apply flex flex-col w-1/3 mx-auto;
-}
 
-input {
-  @apply w-full p-2 mb-2 border border-gray-300 text-xl rounded;
-}
+import { IProduct } from "@/interfaces/IProduct";
+import { getProducts } from "@/services/productService";
+import Card from "@/components/Card";
 
-y me parece que debería generar uno más para los "p" de los errores.
+const Products = async () => {
+  const productsFound: IProduct[] = await getProducts();
 
-La aplicación sería similar a lo que hicimos con los links verdad?
+  return (
+    <main>
+      <div>
+        <h1>Products</h1>
+        <hr />
+        <br />
+        {productsFound.length > 0 ? (
+          <div className="wrapper grid md:grid-cols-4 gap-10">
+            {productsFound.map((product: IProduct) => (
+              <div key={product.id}>
+                <Card product={product} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-center items-center mt-6">
+            <h2 className="text-pink-basic text-center">
+              Sorry, we could not load the products. Please try again later.
+            </h2>
+          </div>
+        )}
+      </div>
+    </main>
+  );
+};
 
-Te paso mi componente login por si te sirve de dato adicional:
-
+export default Products;
